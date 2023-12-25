@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Page</title>
+    <style>
+      /* Some basic styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logout-button">
+      <button onclick="adminLogout()">Logout</button>
+    </div>
+
+    <h1>Admin Panel - Manage Product Quantities</h1>
+    <!-- Existing product update section -->
+    <div>
+      <label for="productSelect">Select Product:</label>
+      <select id="productSelect"></select>
+    </div>
+
+    <div>
+      <label for="titleInput">Enter Title:</label>
+      <input type="string" id="titleInput" />
+    </div>
+    <div>
+      <button onclick="updateTitle()">Update Title</button>
+    </div>
+
+    <div>
+      <label for="priceInput">Enter Price:</label>
+      <input type="number" id="priceInput" min="0" />
+    </div>
+    <div>
+      <button onclick="updatePrice()">Update Price</button>
+    </div>
+
+    <div>
+      <label for="quantityInput">Enter Quantity:</label>
+      <input type="number" id="quantityInput" min="0" />
+    </div>
+    <div>
+      <button onclick="updateQuantity()">Update Quantity</button>
+    </div>
+
+    <div>
+      <label for="imageInput">Enter Image URL:</label>
+      <input type="string" id="imageInput" />
+    </div>
+    <div>
+      <button onclick="updateImage()">Update Image</button>
+    </div>
+
+    <hr />
+
+    <!-- Add new product section -->
+    <h1>Add New Product</h1>
+    <div>
+      <label for="newTitleInput">Title:</label>
+      <input type="text" id="newTitleInput" />
+    </div>
+
+    <div>
+      <label for="newPriceInput">Price:</label>
+      <input type="number" id="newPriceInput" min="0" />
+    </div>
+
+    <div>
+      <label for="newQuantityInput">Quantity:</label>
+      <input type="number" id="newQuantityInput" min="0" />
+    </div>
+
+    <div>
+      <label for="newImageInput">Image URL:</label>
+      <input type="text" id="newImageInput" />
+    </div>
+
+    <div>
+      <button onclick="addNewProduct()">Add Product</button>
+    </div>
+
+    <hr />
+
+    <!-- Delete old product section -->
+    <h1>Delete Product</h1>
+    <div>
+      <label for="deleteProductSelect">Select Product:</label>
+      <select id="deleteProductSelect"></select>
+    </div>
+
+    <div>
+      <button onclick="deleteProduct()">Delete Product</button>
+    </div>
+    <script src="admin.js"></script>
+  </body>
+</html>
