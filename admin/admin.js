@@ -112,9 +112,9 @@ async function updateTitle() {
 // Function to update the price of selected product
 async function updatePrice() {
   const selectedProductId = document.getElementById("productSelect").value;
-  const price = parseFLoat(document.getElementById("priceInput").value);
+  const price = parseFloat(document.getElementById("priceInput").value);
 
-  if (!isNaN(price)) {
+  if (!isNaN(price) || price >= 0) {
     try {
       const response = await fetch(
         `http://localhost:3000/coffee/${selectedProductId}`,
