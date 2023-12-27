@@ -112,7 +112,7 @@ async function updateTitle() {
 // Function to update the price of selected product
 async function updatePrice() {
   const selectedProductId = document.getElementById("productSelect").value;
-  const price = parseInt(document.getElementById("priceInput").value);
+  const price = parseFLoat(document.getElementById("priceInput").value);
 
   if (!isNaN(price)) {
     try {
