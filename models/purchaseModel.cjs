@@ -38,6 +38,10 @@ const purchaseSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  status: {
+    type: String,
+    required: true,
+  },
 });
 
 // Create the Purchase model

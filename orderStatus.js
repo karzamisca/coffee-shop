@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <hr/>
             <strong>Purchase Code:</strong> ${order.purchaseCode}<br>
             <strong>Total Price:</strong> $${order.totalPrice.toFixed(2)}<br>
-            <strong>Purchase Date:</strong>${order.purchaseDate}<br>
+            <strong>Purchase Date:</strong> ${order.purchaseDate}<br>
+            <strong>Status:</strong> ${order.status}<br>
             <strong>Items:</strong>
           `;
 

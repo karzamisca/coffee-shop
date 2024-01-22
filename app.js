@@ -218,12 +218,14 @@ async function confirmPurchase() {
     const totalPrice = parseFloat(
       document.querySelector(".total").textContent.split("$")[1]
     );
+    const status = "Shipping soon";
 
     const purchaseData = {
       username: storedUsername,
       purchaseCode: purchaseCode,
       items: purchaseDetails,
       totalPrice: totalPrice,
+      status: status,
     };
 
     sendPurchaseDataToServer(purchaseData);
