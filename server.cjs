@@ -150,11 +150,7 @@ app.get("/purchase/:username", async (req, res) => {
 mongoose.set("strictQuery", false);
 mongoose
   .connect(
-<<<<<<< HEAD
     "mongodb+srv://MinhQuan:vigjcqq7@shop.90ydj5q.mongodb.net/shop?retryWrites=true&w=majority"
-=======
-    ""
->>>>>>> 5ea98af448391cfd6597f49a1f1e422f97d3486e
   )
   .then(() => {
     console.log("connected to MongoDB");
