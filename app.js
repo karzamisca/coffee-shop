@@ -255,8 +255,10 @@ async function sendPurchaseDataToServer(data) {
     await updateQuantityInStorage(data.items);
 
     clearCart(); // Clear the cart after purchase confirmation
+    // Store purchase information in local storage
+    localStorage.setItem("lastPurchase", JSON.stringify(data));
     // Reset the page after closing the alert
-    window.location.reload();
+    window.location.href = "orderStatus.html";
   } catch (error) {
     console.error("Error confirming purchase:", error);
     alert("There was an error confirming your purchase. Please try again.");

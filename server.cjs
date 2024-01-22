@@ -136,6 +136,15 @@ app.post("/purchase", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+app.get("/purchase/:username", async (req, res) => {
+  try {
+    const { username } = req.params;
+    const products = await Purchase.find({ username });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 //connect to mongodb
 mongoose.set("strictQuery", false);
