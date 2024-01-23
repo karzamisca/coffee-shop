@@ -174,7 +174,7 @@ app.put("/purchase/:username/:purchaseCode", async (req, res) => {
 //connect to mongodb
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb+srv://MinhQuan:vigjcqq7@shop.90ydj5q.mongodb.net/shop")
+  .connect("")
   .then(() => {
     console.log("connected to MongoDB");
     app.listen(3000, () => {
