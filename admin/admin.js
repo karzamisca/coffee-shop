@@ -303,3 +303,36 @@ async function deleteProduct() {
     alert("Error deleting product.");
   }
 }
+
+async function updateStatus() {
+  const username = document.getElementById("UsernameInput").value;
+  const PurchaseCode = document.getElementById("PurchaseCodeInput").value;
+  const status = document.getElementById("newStatusInput").value;
+
+  if (status) {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/purchase/${username}/${PurchaseCode}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: status }),
+        }
+      );
+
+      if (response.ok) {
+        alert("Status updated successfully!");
+      } else {
+        alert("Status updated.");
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+      alert("Error updating status.");
+    }
+    window.location.reload();
+  } else {
+    alert("Please enter a valid status!");
+  }
+}

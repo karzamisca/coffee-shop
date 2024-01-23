@@ -145,13 +145,36 @@ app.get("/purchase/:username", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+app.get("/purchase/:username/:purchaseCode", async (req, res) => {
+  try {
+    const { username, purchaseCode } = req.params;
+    const products = await Purchase.find({ username, purchaseCode });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+app.put("/purchase/:username/:purchaseCode", async (req, res) => {
+  try {
+    const { username, purchaseCode } = req.params;
+    const purchase = await Purchase.findOneAndUpdate(req.params, req.body);
+    // we cannot find any product in database
+    if (!purchase) {
+      return res
+        .status(404)
+        .json({ message: `cannot find any product with ID ${id}` });
+    }
+    const updatedPurchase = await Product.find({ username, purchaseCode });
+    res.status(200).json(updatedPurchase);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 //connect to mongodb
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(
-    ""
-  )
+  .connect("mongodb+srv://MinhQuan:vigjcqq7@shop.90ydj5q.mongodb.net/shop")
   .then(() => {
     console.log("connected to MongoDB");
     app.listen(3000, () => {
